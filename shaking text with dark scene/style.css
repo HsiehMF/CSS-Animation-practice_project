@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Serif TC', serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0a2a43;
+}
+
+.cover img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    animation: bgShake 1s cubic-bezier(.17, 5.67, 0.98, -3.07);
+    animation-delay: 3s;
+    animation-duration: 0.1s;
+    mix-blend-mode: saturation;
+}
+
+/* 外層有 absolute，未指定偏移量就會遵照原本位置 */
+.cover h2 {
+    position: relative;
+    font-size: 64px;
+    font-weight: 700;
+    font-style: italic;
+    user-select: none;
+    color: white;
+    z-index: 5;
+    opacity: 0.95;
+}
+
+/* 由於外層有 relative，未指定偏移值時就會遵照原本位置 */
+h2::before, h2::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: attr(data-title);
+    font-style: italic;
+    z-index: -1;
+}
+
+/* cubic-bezier 貝茲曲線 */
+h2::before {
+    transform: scaleY(-1);
+    color: #db063f;
+    animation: Shake 1s infinite cubic-bezier(.17,5.67,.98,-3.07);
+}
+
+h2::after {
+    color: #a7d3d8;
+    animation: Shake 3s infinite cubic-bezier(.17,3.67,.98,-3.07) reverse;
+}
+
+@keyframes Shake {
+    0% {
+        transform: 0;
+    }
+    10% {
+        transform: translate(-1px, -9px);
+    }
+    20% {
+        transform: translate(-2px, 3px);
+    }
+    30% {
+        transform: translate(-5px, 3px);
+    }
+    40% {
+        transform: translate(2px, 6px);
+    }
+    50% {
+        transform: translate(-2px, 2px);
+    }
+    55% {
+        transform: translate(0px, 2px);
+    }
+    60% {
+        transform: translate(-1px, 6px);
+    }
+    70% {
+        transform: translate(-2px, 3px);
+    }
+    80% {
+        transform: translate(-5px, 3px);
+    }
+    90% {
+        transform: translate(8px, 1px);
+    }
+    95% {
+        transform: translate(2px, 2px);
+    }
+    100% {
+        transform: translate(1px, 1px);
+    }
+}
+
+@keyframes bgShake {
+    0% {
+        transform: 0;
+    }
+    10% {
+        transform: translate(-1px, -9px);
+    }
+    20% {
+        transform: translate(-2px, 3px);
+    }
+    30% {
+        transform: translate(-5px, 3px);
+    }
+    40% {
+        transform: translate(2px, 6px);
+    }
+    50% {
+        transform: translate(-2px, 2px);
+    }
+    55% {
+        transform: translate(0px, 2px);
+    }
+    60% {
+        transform: translate(-1px, 6px);
+    }
+    70% {
+        transform: translate(-2px, 3px);
+    }
+    80% {
+        transform: translate(-5px, 3px);
+    }
+    90% {
+        transform: translate(2px, 15px);
+    }
+    95% {
+        transform: translate(2px, 2px);
+    }
+    100% {
+        transform: translate(1px, 1px);
+    }
+}

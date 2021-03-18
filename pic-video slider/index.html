@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 工具使用：clippy 一 CSS clip-path -->
+    <div class="container">
+        <div class="box box1">
+            <video src="video1.mp4" autoplay loop muted></video>
+            <div class="content">
+                <h2>If you live each day as if it was your last, someday you’ll most certainly be right.</h2>
+                <h2>─ jobs</h2>
+            </div>
+        </div>
+        <div class="box box2">
+            <video src="video2.mp4" autoplay loop muted></video>
+            <div class="content">
+                <h2>If you get up in the morning and think the future is going to be better, it is a bright day. Otherwise, it's not.</h2>
+                <h2>─ Musk</h2>
+            </div>
+        </div>
+        <div class="box box3">
+            <video src="video3.mp4" autoplay loop muted></video>
+            <div class="content">
+                <h2>Let bygones be bygones.</h2>
+            </div>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelectorAll('.box');
+        box.forEach(eachBox => eachBox.addEventListener('click', () => {
+            eachBox.classList.toggle('active');
+        }))
+    </script>
+</body>
+</html>

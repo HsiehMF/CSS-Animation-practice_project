@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background-origin: border-box;
+    min-height: 100vh;
+    background: #121213;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    position: relative;
+    /* 鏡像反射, below 為影子與實體的距離 */
+    /* linear-gradient 漸層效果, 第一個參數為效果從哪裡開始, 第二個參數為各百分比所呈現的顏色 */
+    -webkit-box-reflect: below -15px -webkit-linear-gradient(bottom, rgba(255,255,255,0.25) 0%, transparent 75%);
+}
+
+/* 底線效果 */
+.loader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: white;
+    animation: blinkCursor 0.8s steps(3)  infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 75% {
+        opacity: 1;
+    }
+    76%, 100% {
+        opacity: 0;
+    }
+}
+
+.loader h2 {
+    position: relative;
+    color: white;
+    letter-spacing: 5px;
+    font-size: 4em;
+    text-transform: uppercase;
+    animation: typing 8s steps(10) infinite;
+    overflow: hidden;
+}
+
+@keyframes typing {
+    0% {
+        width: 0px;
+    }
+    40% {
+        width: 332.38px;
+    }
+}

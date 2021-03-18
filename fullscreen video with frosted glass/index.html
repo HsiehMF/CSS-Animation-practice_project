@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fullscreen video with frosted glass</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+    <section>
+        <!-- 頂部功能 -->
+        <header>
+            <a href="#" class="logo">Dark 闇</a>
+            <div class="toggle" onclick="menuToggle()"></div>
+        </header>
+        
+        <!-- 毛玻璃特效 -->
+        <div class="frosted-glass"></div>
+
+        <!-- 中央內容 -->
+        <div class="content">
+            <h2>Anfänge und Enden </h2><br>
+            <span>Deja-vu ⏤ Die Reisenden</span>
+        </div>
+
+        <!-- 背景影片 -->
+        <video id="vid" autoplay loop muted>
+            <source src="./bg.mp4" type="video/mp4" />
+        </video>
+        <!-- 選單 -->
+        <ul class="navigation">
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">關於</a></li>
+            <li><a href="#">角色</a></li>
+            <li><a href="#">相關連結</a></li>
+        </ul>
+        <i id="muted" class="fas fa-volume-mute fa-1x muted-icon active"></i>
+    </section>
+    <script>
+        var vid = document.getElementById('vid');
+        var el = document.getElementById('muted');
+        vid.addEventListener('click', function() {
+            vid.muted = !vid.muted;
+            if (vid.muted === true) {
+                el.className = 'fas fa-volume-mute fa-1x muted-icon active';
+            } else {
+                el.className = 'fas fa-volume-mute fa-1x muted-icon';
+            }
+        })
+    </script>
+    <script>
+        function menuToggle() {
+            var toggleMenu = document.querySelector('.toggle');
+            toggleMenu.classList.toggle('active');
+
+            var section = document.querySelector('section');
+            // 利用 section 可以有效控制內部的各個元素，為不同元素添加各自的效果
+            section.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
